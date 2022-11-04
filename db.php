@@ -21,4 +21,10 @@ $servername = "127.0.0.1";
         return $fetchAll ? $statement->fetchAll() : $statement->fetch();      
     }
 
+    function insertData($sql, $connection) {
+        $statement = $connection->prepare($sql);
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement->execute();
+    }
+
 ?>
